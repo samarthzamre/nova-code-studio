@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 
-const CTASection = () => {
+interface CTASectionProps {
+  onGetStarted: () => void;
+  onScheduleDemo: () => void;
+}
+
+const CTASection = ({ onGetStarted, onScheduleDemo }: CTASectionProps) => {
   return (
     <section className="py-24 px-6 relative overflow-hidden">
       {/* Background Glow */}
@@ -34,11 +39,11 @@ const CTASection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={onGetStarted}>
               Get Started Free
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="heroOutline" size="xl">
+            <Button variant="heroOutline" size="xl" onClick={onScheduleDemo}>
               Schedule Demo
             </Button>
           </div>
